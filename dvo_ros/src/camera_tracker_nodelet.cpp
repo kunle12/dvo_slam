@@ -21,8 +21,6 @@
 #include <dvo_ros/camera_tracker_nodelet.h>
 #include <pluginlib/class_list_macros.h>
 
-PLUGINLIB_DECLARE_CLASS(dvo_ros, camera_tracker, dvo_ros::CameraTrackerNodelet, nodelet::Nodelet)
-
 namespace dvo_ros
 {
 
@@ -41,3 +39,5 @@ void CameraTrackerNodelet::onInit()
 }
 
 } /* namespace dvo_ros */
+
+PLUGINLIB_EXPORT_CLASS(dvo_ros::CameraTrackerNodelet, nodelet::Nodelet)

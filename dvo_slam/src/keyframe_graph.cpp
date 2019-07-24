@@ -135,8 +135,8 @@ public:
     // g2o setup
     keyframegraph_.setAlgorithm(
         new g2o::OptimizationAlgorithmDogleg(
-            new BlockSolver(
-                new LinearSolver()
+            std::unique_ptr<BlockSolver>(new BlockSolver(
+                std::unique_ptr<LinearSolver>(new LinearSolver()))
     )));
     keyframegraph_.setVerbose(false);
 

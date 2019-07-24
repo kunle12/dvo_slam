@@ -76,8 +76,8 @@ struct LocalMapImpl
     // g2o setup
     graph_.setAlgorithm(
         new g2o::OptimizationAlgorithmLevenberg(
-            new BlockSolver(
-                new LinearSolver()
+            std::unique_ptr<BlockSolver>(new BlockSolver(
+                std::unique_ptr<LinearSolver>(new LinearSolver()))
             )
         )
     );
